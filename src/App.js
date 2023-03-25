@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     const url = window.location.href;
-    const match = url.match(/&tx=([a-zA-Z0-9-_]+)/);
+    const match = url.match(/\?tx=([a-zA-Z0-9-_]+)/);
   
     if (match) {
       const transactionId = match[1];
