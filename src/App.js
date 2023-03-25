@@ -19,6 +19,7 @@ function App() {
   const [requestStatus, setRequestStatus] = useState("");
   const [transaction_id, setTransactionId] = useState("");
   const [message, setMessage] = useState("")
+  const [sendToEmail, setSendToEmail] = useState("")
   
   
 
@@ -46,6 +47,8 @@ function App() {
     formData.append("file_name", file.name);
     formData.append("file_type", file.type);
     formData.append("message", message);
+    formData.append("sendToEmail", sendToEmail);
+    formData.append("sendFromEmail", 'lorimer@othent.io'); // change later to google SDK
   
     fetch('https://server.othent.io/weavetransfer', {
       method: 'POST',
@@ -118,6 +121,10 @@ function App() {
                 ) : (
                   <>
                     <UploadFile onChange={handleFileUpload} fileName={fileName} />
+
+                    <input className="message-input" 
+                    placeholder="Send to Email" 
+                    value={sendToEmail} onChange={(event) => setSendToEmail(event.target.value)} />
 
                     <input className="message-input" 
                     placeholder="Message (optional)" 
