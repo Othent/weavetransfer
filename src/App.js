@@ -129,7 +129,7 @@ function App() {
                             <p className="success-text">File ID: </p>
                             <a className="download-link-a" target='_blank' 
                             href={`https://arweave.net/${transaction_id}`}>
-                              weavetransfer.com/{transaction_id}
+                              arweave.net/{transaction_id}
                             </a>
                           </div>
                         </div>
