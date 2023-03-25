@@ -63,6 +63,7 @@ function App() {
         if (data.success === true) {
           setRequestStatus('success');
           setMessage("")
+          setSendToEmail("")
         } else {
           setRequestStatus('failed');
         }
@@ -132,6 +133,7 @@ function App() {
 
                     {transaction_id && requestStatus === 'success' && (
                       <div>
+                        <p className="success-text1">Success!</p>
                           <div className="download-link">
                             <p className="success-text">File ID: </p>
                             <a className="download-link-a" target='_blank' 

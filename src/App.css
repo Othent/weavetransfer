@@ -284,6 +284,12 @@ label {
   color: green;
   font-size: 16px;
 }
+.success-text1 {
+  margin-right: 5px;
+  color: green;
+  font-size: 16px;
+  margin-bottom: 0;
+}
 
 .error-text {
   color: red;
