@@ -25,7 +25,7 @@ function App() {
     const path = window.location.pathname.substring(1);
     if (path !== '') {
       window.open(`https://arweave.net/${path}`);
-      console.log('open')
+      console.log('opening file')
     }
   }, []);
 
