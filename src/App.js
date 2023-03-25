@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import UploadFile from "./uploadFile.js";
 import backgroundImage from "./images/arbackground.png";
 import loading_gif from './images/loading.gif'
+import google from './images/google.png'
 
 
 const MALE = 'MALE'
@@ -100,9 +101,12 @@ function App() {
         <span className="logo-container">
           <h1 className="title">Weave Transfer</h1>
         </span>
+
         <p className="description">
           Permanent public on-chain storage file transfer system using the Arweave permaweb and Authy walletless protocol.
         </p>
+
+        <img className="google" src={google} />
 
         <div className="toggle-option">
           <button className="upload" onClick={() => setVisible(MALE)}>Upload</button>
