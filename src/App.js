@@ -22,12 +22,17 @@ function App() {
 
 
   useEffect(() => {
-    const path = window.location.pathname.substring(1);
-    if (path !== '') {
-      window.open(`https://arweave.net/${path}`);
-      console.log('opening file')
+    const url = window.location.href;
+    const match = url.match(/&tx=([a-zA-Z0-9-_]+)/);
+  
+    if (match) {
+      const transactionId = match[1];
+      window.open(`https://arweave.net/${transactionId}`);
+      console.log('open');
     }
   }, []);
+  
+  
 
 
 
