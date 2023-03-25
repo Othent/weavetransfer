@@ -19,18 +19,6 @@ function App() {
   const [requestStatus, setRequestStatus] = useState("");
   const [transaction_id, setTransactionId] = useState("");
   const [message, setMessage] = useState("")
-
-
-  useEffect(() => {
-    const url = window.location.href;
-    const match = url.match(/\?tx=([a-zA-Z0-9-_]+)/);
-  
-    if (match) {
-      const transactionId = match[1];
-      window.open(`https://arweave.net/${transactionId}`);
-      console.log('open');
-    }
-  }, []);
   
   
 
