@@ -10,14 +10,6 @@ const FEMALE = 'FEMALE'
 function App() {
 
 
-  const path = window.location.pathname.substring(1)
-  if (path !== '') {
-    window.open(`https://arweave.net/${path}`);
-    console.log('open')
-  }
-
-
-
   const [visible, setVisible] = useState(null)
   const isMale = visible === MALE
   const isFemale = visible === FEMALE
@@ -29,6 +21,13 @@ function App() {
   const [message, setMessage] = useState("")
 
 
+  useEffect(() => {
+    const path = window.location.pathname.substring(1);
+    if (path !== '') {
+      window.open(`https://arweave.net/${path}`);
+      console.log('open')
+    }
+  }, []);
 
 
 
