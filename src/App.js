@@ -45,8 +45,6 @@ function App() {
   
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("file_name", file.name);
-    formData.append("file_type", file.type);
     formData.append("message", message);
     formData.append("sendToEmail", sendToEmail);
     formData.append("sendFromEmail", 'lorimer@othent.io'); // change later to google SDK
@@ -103,7 +101,7 @@ function App() {
         </span>
 
         <p className="description">
-          Permanent public on-chain storage file transfer system using the Arweave permaweb and Authy walletless protocol.
+          Permanent public on-chain storage file transfer system using the Arweave permaweb and Othent.io walletless protocol.
         </p>
 
         <img className="google" src={google} />
