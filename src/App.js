@@ -104,7 +104,7 @@ function App() {
           Permanent public on-chain storage file transfer system using the Arweave permaweb and Othent.io walletless protocol.
         </p>
 
-        <img className="google" src={google} />
+        {/* <img className="google" src={google} /> */}
 
         <div className="toggle-option">
           <button className="upload" onClick={() => setVisible(MALE)}>Upload</button>
