@@ -87,6 +87,8 @@ function App() {
   const downloadLink = transaction_id ? `https://arweave.net/${transaction_id}` : '';
 
   return (
+
+
     <div
       className="App"
       style={{
@@ -103,8 +105,6 @@ function App() {
         <p className="description">
           Permanent public on-chain storage file transfer system using the Arweave permaweb and Othent.io walletless protocol.
         </p>
-
-        {/* <img className="google" src={google} /> */}
 
         <div className="toggle-option">
           <button className="upload" onClick={() => setVisible(MALE)}>Upload</button>
@@ -156,6 +156,10 @@ function App() {
           </form>
         </div>
         )}
+
+
+
+        
         {
           isFemale && (
             <div className="download-box">

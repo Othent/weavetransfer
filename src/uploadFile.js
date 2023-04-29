@@ -2,6 +2,7 @@ import React from "react";
 import './App.css'
 
 export default function UploadFile({ onChange, fileName }) {
+  
   function handleDragOver(event) {
     event.preventDefault();
   }
