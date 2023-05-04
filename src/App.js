@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import UploadFile from "./uploadFile.js";
 import backgroundImage from "./images/arbackground.png";
 import loading_gif from './images/loading.gif'
-import google from './images/google.png'
 
 
 const MALE = 'MALE'
@@ -119,7 +118,7 @@ function App() {
                 {loading ? (
                   <div className="spinner-container">
                       <p className="spinner-text">Uploading</p>
-                      <img className="spinner_gif" src={loading_gif} />
+                      <img className="spinner_gif" src={loading_gif} alt="loading gif" />
                   </div>
                 ) : (
                   <>
@@ -138,7 +137,7 @@ function App() {
                         <p className="success-text1">Success!</p>
                           <div className="download-link">
                             <p className="success-text">File ID: </p>
-                            <a className="download-link-a" target='_blank' 
+                            <a className="download-link-a" target='_blank' rel="noreferrer" 
                             href={`https://arweave.net/${transaction_id}`}>
                               arweave.net/{transaction_id}
                             </a>
