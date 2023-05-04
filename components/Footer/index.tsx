@@ -15,7 +15,7 @@ const Footer = () => {
           <a href="https://docs.othent.io" target='_blank'>Documentation</a>
         </li>
         <li className={SpaceGrotesk500.className}>
-          <a href="/othent-media-kit.zip" download>Media Kit</a>
+          <a href="/media-kit.zip" download>Media Kit</a>
         </li>
       </ul>
 
