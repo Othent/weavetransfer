@@ -75,9 +75,19 @@ const WeaveTransfer = () => {
 
 
     const user_details = await othent.logIn()
+
+    const signedArweaveTransaction = await othent.signTransactionArweave({
+      othentFunction: 'uploadData', 
+      data: file,
+      tags: [ {name: 'Content-Type', value: file.type} ]
+    });
+
+    const transaction = await othent.sendTransactionArweave(signedArweaveTransaction);
+
+    console.log(transaction)
   
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("transaction_id", transaction.transactionId);
     formData.append("sendToEmail", sendToEmail);
     formData.append("sendFromEmail", user_details.email);
 
