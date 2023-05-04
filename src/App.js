@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UploadFile from "./uploadFile.js";
 import backgroundImage from "./images/arbackground.png";
 import loading_gif from './images/loading.gif'
+// import othent from 'othent/dist';
 
 
 const MALE = 'MALE'
@@ -85,6 +86,7 @@ function App() {
 
   const downloadLink = transaction_id ? `https://arweave.net/${transaction_id}` : '';
 
+
   return (
 
 
@@ -102,7 +104,7 @@ function App() {
         </span>
 
         <p className="description">
-          Permanent public on-chain storage file transfer system using the Arweave permaweb and Othent.io walletless protocol.
+          Test test public on-chain storage file transfer system using the Arweave permaweb and Othent.io walletless protocol.
         </p>
 
         <div className="toggle-option">
