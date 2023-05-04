@@ -83,8 +83,6 @@ const WeaveTransfer = () => {
     });
 
     const transaction = await othent.sendTransactionArweave(signedArweaveTransaction);
-
-    console.log(transaction)
   
     const formData = new FormData();
     formData.append("transaction_id", transaction.transactionId);
