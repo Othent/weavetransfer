@@ -73,6 +73,8 @@ const WeaveTransfer = () => {
       return;
     }
 
+    setLoading(true)
+
 
     const user_details = await othent.logIn()
 
@@ -88,8 +90,6 @@ const WeaveTransfer = () => {
     formData.append("transaction_id", transaction.transactionId);
     formData.append("sendToEmail", sendToEmail);
     formData.append("sendFromEmail", user_details.email);
-
-    setLoading(true)
   
     fetch('https://server.othent.io/weavetransfer', {
       method: 'POST',
@@ -98,12 +98,12 @@ const WeaveTransfer = () => {
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
-        setTransactionId(data.transactionId);
         setFileName("");
+        setSendToEmail("")
         setFile(null);
         if (data.success === true) {
           setRequestStatus('success');
-          setSendToEmail("")
+          setTransactionId(transaction.transactionId);
           setUserEmail(user_details.email)
           setWalletAddress(user_details.contract_id)
         } else {
