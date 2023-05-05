@@ -221,7 +221,10 @@ const WeaveTransfer = () => {
             {!(transaction_id && walletAddress) && (
               <Button fullWidth onClick={uploadFileButton}>
                 {loading ? (
-                  <span>Loading...</span>
+                  <>
+                    <img src="/spinner.gif" alt="Spinner icon" draggable={false} />
+                    <span>Loading...</span>
+                  </>
                 ) : (
                   <>
                     <img src="/wt-google.svg" alt="Google icon" draggable={false} />
