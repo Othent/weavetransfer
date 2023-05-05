@@ -202,7 +202,9 @@ const WeaveTransfer = () => {
                 </p>
                 <p className='id-wallet-upload'>
                   <b>Transaction ID: </b>
-                  <a className='txn-id-a' href={'https://arweave.net/' + transaction_id} target="_blank">{transaction_id}</a>
+                  <span>
+                    <a className='txn-id-a' href={'https://arweave.net/' + transaction_id} target="_blank">{transaction_id}</a>
+                  </span>
                 </p>
 
                 <p className='id-wallet-upload'>
