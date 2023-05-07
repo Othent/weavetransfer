@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FeatureTextSmall } from '../common';
 
 import { DMSans700, SpaceGrotesk700, DMSans500 } from '../../utils/fonts';
@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import * as Styled from './styles';
 import Button from '../Button'
 import styled from 'styled-components';
-import othent from 'othent'
+import { Othent } from 'othent';
 
 const WeaveTransfer = () => {
 
@@ -53,9 +53,18 @@ const WeaveTransfer = () => {
     return emailRegex.test(email);
   }
 
+  useEffect(() => {
+    async function createOthentInstance() {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
+      setOthentInstance(othent);
+    }
+    createOthentInstance();
+  }, []);
+
 
   const [transaction_id, setTransactionId] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
+  const [othentInstance, setOthentInstance] = useState(null);
   async function uploadFileButton() {
 
     if (!file) {
@@ -76,15 +85,15 @@ const WeaveTransfer = () => {
     setLoading(true)
 
 
-    const user_details = await othent.logIn()
+    const user_details = await othentInstance.logIn()
 
-    const signedArweaveTransaction = await othent.signTransactionArweave({
+    const signedArweaveTransaction = await othentInstance.signTransactionArweave({
       othentFunction: 'uploadData', 
       data: file,
       tags: [ {name: 'Content-Type', value: file.type} ]
     });
 
-    const transaction = await othent.sendTransactionArweave(signedArweaveTransaction);
+    const transaction = await othentInstance.sendTransactionArweave(signedArweaveTransaction);
   
     const formData = new FormData();
     formData.append("transaction_id", transaction.transactionId);
