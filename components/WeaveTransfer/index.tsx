@@ -218,7 +218,7 @@ const WeaveTransfer = () => {
 
                 <p className='id-wallet-upload'>
                   <b>Your Wallet Address: </b>
-                  <span>{walletAddress}</span>
+                  <a className='txn-id-a' href={'https://sonar.warp.cc/#/app/contract/' + walletAddress} target="_blank">{walletAddress}</a>
                 </p>
 
                 <Button fullWidth onClick={() => window.location.reload()}>
