@@ -8,6 +8,8 @@ import Button from '../Button'
 import styled from 'styled-components';
 import { Othent } from 'othent';
 
+
+
 const WeaveTransfer = () => {
 
 
@@ -86,6 +88,11 @@ const WeaveTransfer = () => {
 
 
     const user_details = await othentInstance.logIn()
+
+    if (user_details.message === 'new user created') {
+      alert('New Othent account created! Please re send the file')
+      window.location.reload();
+    }
 
     const signedArweaveTransaction = await othentInstance.signTransactionArweave({
       othentFunction: 'uploadData', 
