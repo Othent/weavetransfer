@@ -13,6 +13,14 @@ const Nav = () => {
 
   const dropdownRef = useRef(null);
 
+  const [copiedPopup, setCopiedPopup] = useState(false);
+  const handleCopyPopup = () => {
+    setCopiedPopup(true);
+    setTimeout(() => {
+      setCopiedPopup(false);
+    }, 500);
+  };
+
   useEffect(() => {
     async function createOthentInstance() {
       const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
@@ -93,6 +101,7 @@ const Nav = () => {
   const handleCopy = () => {
     setCopyClicked(true);
     navigator.clipboard.writeText(userContractId);
+    handleCopyPopup()
     setTimeout(() => {
       setCopyClicked(false);
     }, 100);
@@ -101,6 +110,11 @@ const Nav = () => {
   return (
   
   <Styled.NavBar>
+    {copiedPopup && (
+        <Styled.copiedPopup className="popup">
+          Text copied!
+        </Styled.copiedPopup>
+      )}
     <Styled.NavLogo>
       <a href='/' className='site-a-warp'>
         <img src="/wt-logo.svg" alt="Weave Transfer logo" />
