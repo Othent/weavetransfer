@@ -117,8 +117,13 @@ export const userImg = styled.img`
 `;
 
 export const DropdownArrow = styled.img`
-  margin-right: 5px;
-  height: 7px;
+  margin-left: 5px;
+  height: 6px;
+  margin-top: 6px;
+
+  &.rotate {
+    transform: rotate(180deg);
+  }
 `;
 
 export const Dropdown = styled.div`
