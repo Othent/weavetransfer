@@ -8,7 +8,7 @@
   "dependencies": {
     "framer-motion": "^10.12.4",
     "next": "latest",
-    "othent": "^1.0.52",
+    "othent": "^1.0.54",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",

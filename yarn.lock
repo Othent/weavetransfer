@@ -489,10 +489,10 @@
     "@next/swc-win32-ia32-msvc" "13.2.4"
     "@next/swc-win32-x64-msvc" "13.2.4"
 
-"othent@^1.0.52":
-  "integrity" "sha512-hlhbvmzqzhtM7CbXXVNn/SvYyKkczQHggU5sCHaq2HivYUBuKrMwcyQCNmuM+8UB/l26/5A7kFVWmioCbng4Rw=="
-  "resolved" "https://registry.npmjs.org/othent/-/othent-1.0.52.tgz"
-  "version" "1.0.52"
+"othent@^1.0.54":
+  "integrity" "sha512-X3KUKXwwTYOl7z4/7DmI84PHU+sZIsESDa7SXJmayYNpGwLGXeTt8kvW6FflRSfscVIA5jB+MGstY7m/P51jcw=="
+  "resolved" "https://registry.npmjs.org/othent/-/othent-1.0.54.tgz"
+  "version" "1.0.54"
   dependencies:
     "@auth0/auth0-spa-js" "^2.0.4"
     "axios" "^1.3.4"
