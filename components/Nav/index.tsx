@@ -186,7 +186,7 @@ const Nav = () => {
 
               <Styled.UserContractIdContainer>
                 <Styled.UserContractId className='user-contract-id'>
-                  {userContractId}
+                  <b style={{ color: 'black' }}>Wallet Address: </b>{userContractId}
                 </Styled.UserContractId>
                 <Styled.UserContractIdCopy
                   src='./copy.svg'
