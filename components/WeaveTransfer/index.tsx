@@ -249,7 +249,7 @@ const WeaveTransfer = () => {
                 ) : (
                   <>
                     <img src="/wt-google.svg" alt="Google icon" draggable={false} />
-                    Send on-chain with Google
+                    Send on chain with Google
                   </>
                 )}
               </Button>
