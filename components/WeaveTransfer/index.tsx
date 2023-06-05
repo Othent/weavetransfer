@@ -87,7 +87,13 @@ const WeaveTransfer = () => {
     setLoading(true)
 
 
-    const user_details = await othentInstance.logIn()
+    let user_details 
+    if (JSON.parse(localStorage.getItem('othentUserDetails'))) {
+      user_details = await othentInstance.userDetails()
+    } else {
+      user_details = await othentInstance.logIn()
+      localStorage.setItem('othentUserDetails', JSON.stringify(user_details));
+    }
 
     if (user_details.message === 'new user created') {
       alert('New Othent account created! Please re send the file')
