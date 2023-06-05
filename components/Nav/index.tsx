@@ -4,7 +4,22 @@ import Button from '../Button';
 import { Othent } from 'othent';
 import { useState, useEffect, useRef } from 'react';
 
+
 const Nav = () => {
+
+
+  useEffect(() => {
+    const user_details = JSON.parse(localStorage.getItem('othentUserDetails'))
+    if (user_details) {
+      setUserPicture(user_details.picture);
+      setUserName(user_details.name)
+      setUserEmail(user_details.email)
+      setUserContractId(user_details.contract_id)
+      setIsLoggedIn(true);
+    }
+
+  }, []);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [othentInstance, setOthentInstance] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -50,8 +65,10 @@ const Nav = () => {
   const [userEmail, setUserEmail] = useState('');
   const [userContractId, setUserContractId] = useState('');
 
+
   async function logIn() {
     const user_details = await othentInstance.logIn();
+    localStorage.setItem('othentUserDetails', JSON.stringify(user_details));
     setUserPicture(user_details.picture);
     setUserName(user_details.name)
     setUserEmail(user_details.email)
@@ -107,8 +124,8 @@ const Nav = () => {
     }, 100);
   };
 
+
   return (
-  
   <Styled.NavBar>
     {copiedPopup && (
         <Styled.copiedPopup className="popup">
@@ -117,105 +134,107 @@ const Nav = () => {
       )}
     <Styled.NavLogo>
       <a href='/' className='site-a-warp'>
-        <img src="/wt-logo.svg" alt="Weave Transfer logo" />
-        <p className={DMSans700.className}>Weave Transfer</p>
+        <div className='toggle'>
+          <div></div>
+        </div>
+        <p className={DMSans700.className}>Othent</p>
       </a>
     </Styled.NavLogo>
+  <Styled.Menu>
+    <a
+      href='https://docs.othent.io/developers/sdk'
+      target='_blank'
+      className={`${DMSans700.className} devs`}
+    >
+      Developers
+    </a>
+    <a href='mailto:hello@othent.io' className={DMSans700.className}>
+      Contact Us
+    </a>
+    {isLoggedIn ? (
+      <div ref={dropdownRef}>
+        <Styled.UserImgContainer onClick={() => toggleDropdown()}>
+          <Styled.userImg
+            src={userPicture}
+            alt='User picture'
+            referrerPolicy='no-referrer'
+          />
+          <Styled.DropdownArrow
+            src='./drop_down_arrow.svg'
+            alt='Dropdown icon'
+            referrerPolicy='no-referrer'
+            className={isArrowFlipped ? 'rotate' : ''}
+          />
+        </Styled.UserImgContainer>
 
-    <Styled.Menu>
-      <a
-        href='https://docs.othent.io/developers/sdk'
-        target='_blank'
-        className={`${DMSans700.className} devs`}
-      >
-        Developers
-      </a>
-      <a href='mailto:hello@othent.io' className={DMSans700.className}>
-        Contact Us
-      </a>
-      {isLoggedIn ? (
-        <div ref={dropdownRef}>
-          <Styled.UserImgContainer onClick={() => toggleDropdown()}>
-            <Styled.userImg
-              src={userPicture}
-              alt='User picture'
-              referrerPolicy='no-referrer'
-            />
-            <Styled.DropdownArrow
-              src='./drop_down_arrow.svg'
-              alt='Dropdown icon'
-              referrerPolicy='no-referrer'
-              className={isArrowFlipped ? 'rotate' : ''}
-            />
-          </Styled.UserImgContainer>
+        {showDropdown && (
+          <Styled.Dropdown>
+            <Styled.DropdownItem onClick={() => showAccount()}>
+              Account
+            </Styled.DropdownItem>
+            <Styled.DropdownItem onClick={() => logOut()}>
+              Log Out
+            </Styled.DropdownItem>
+          </Styled.Dropdown>
+        )}
+      </div>
+    ) : (
+      <Button onClick={() => logIn()}>Sign in / up</Button>
+    )}
 
-          {showDropdown && (
-            <Styled.Dropdown>
-              <Styled.DropdownItem onClick={() => showAccount()}>
-                Account
-              </Styled.DropdownItem>
-              <Styled.DropdownItem onClick={() => logOut()}>
-                Log Out
-              </Styled.DropdownItem>
-            </Styled.Dropdown>
-          )}
-        </div>
-      ) : (
-        <Button onClick={() => logIn()}>Sign in / up</Button>
-      )}
+    {isPopupOpen && (
+      <>
+      
+        <Styled.BlurredBody className='popup-background'>
 
-      {isPopupOpen && (
-        <>
-          <Styled.BlurredBody className='popup-background'>
+          <Styled.Popup>
+            <Styled.PopupHeaderContainer>
+              <Styled.PopupHeader>{userName}</Styled.PopupHeader>
+              <Styled.PopupCloseButton onClick={() => setIsPopupOpen(false)}>
+                Close
+              </Styled.PopupCloseButton>
+            </Styled.PopupHeaderContainer>
 
-            <Styled.Popup>
-              <Styled.PopupHeaderContainer>
-                <Styled.PopupHeader>{userName}</Styled.PopupHeader>
-                <Styled.PopupCloseButton onClick={() => setIsPopupOpen(false)}>
-                  Close
-                </Styled.PopupCloseButton>
-              </Styled.PopupHeaderContainer>
+            <Styled.PopupBody>
+              <Styled.UserPicture
+                src={userPicture}
+                alt='User picture'
+                referrerPolicy='no-referrer'
+              />
+              <Styled.UserEmail>{userEmail}</Styled.UserEmail>
 
-              <Styled.PopupBody>
-                <Styled.UserPicture
-                  src={userPicture}
-                  alt='User picture'
+              <Styled.UserContractIdContainer>
+                <Styled.UserContractId className='user-contract-id'>
+                  <b style={{ color: 'black' }}>Wallet Address: </b>{userContractId}
+                </Styled.UserContractId>
+                <Styled.UserContractIdCopy
+                  src='./copy.svg'
+                  alt='Copy contract ID'
+                  onClick={handleCopy}
                   referrerPolicy='no-referrer'
+                  style={{
+                    filter: copyClicked
+                      ? 'grayscale(100%) brightness(0%)'
+                      : 'none',
+                  }}
                 />
-                <Styled.UserEmail>{userEmail}</Styled.UserEmail>
+              </Styled.UserContractIdContainer>
 
-                <Styled.UserContractIdContainer>
-                  <Styled.UserContractId className='user-contract-id'>
-                    <b style={{ color: 'black' }}>Wallet Address: </b>{userContractId}
-                  </Styled.UserContractId>
-                  <Styled.UserContractIdCopy
-                    src='./copy.svg'
-                    alt='Copy contract ID'
-                    onClick={handleCopy}
-                    referrerPolicy='no-referrer'
-                    style={{
-                      filter: copyClicked
-                        ? 'grayscale(100%) brightness(0%)'
-                        : 'none',
-                    }}
-                  />
-                </Styled.UserContractIdContainer>
+              <Styled.ViewTransactionsButton
+                href={`https://sonar.warp.cc/#/app/contract/${userContractId}`}
+                target='_blank'
+              >
+                View Recent Transactions
+              </Styled.ViewTransactionsButton>
+            </Styled.PopupBody>
+          </Styled.Popup>
 
-                <Styled.ViewTransactionsButton
-                  href={`https://sonar.warp.cc/#/app/contract/${userContractId}`}
-                  target='_blank'
-                >
-                  View Recent Transactions
-                </Styled.ViewTransactionsButton>
-              </Styled.PopupBody>
-            </Styled.Popup>
+        </Styled.BlurredBody>
 
-          </Styled.BlurredBody>
-
-        </>
-      )}
-    </Styled.Menu>
-  </Styled.NavBar>
+      </>
+    )}
+  </Styled.Menu>
+</Styled.NavBar>
 );
 };
 
