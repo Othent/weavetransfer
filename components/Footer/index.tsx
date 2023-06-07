@@ -68,7 +68,10 @@ const Footer = () => {
 const LogoSection = () => (
   <Styled.CLabs>
     <a href='/' className='site-a-warp'>
-      <img src='/logo.svg' alt='Othent logo' className='othent-logo' draggable={false} />
+      <img src='/wt-logo.svg' alt='Weave Transfer logo' className='othent-logo' draggable={false} />
+      <p className="WT-text">
+          Weave Transfer
+        </p>
     </a>
     <div>
       <a href='https://communitylabs.com' target='_blank' className='site-a-warp'>

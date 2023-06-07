@@ -57,6 +57,11 @@ export const Container = styled.footer`
     gap: 10px;
   }
 
+  .WT-text {
+    color: #2375ef;
+    font-weight: bold;
+  }
+
   
 
 `;

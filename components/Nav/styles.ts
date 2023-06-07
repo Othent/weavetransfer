@@ -27,6 +27,9 @@ export const NavBar = styled.header`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    img {
+      height: 2.5rem;
+    }
   }
 
 `;

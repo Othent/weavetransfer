@@ -148,12 +148,6 @@ const WeaveTransfer = () => {
 
   return (
     <Styled.MainWrapper>
-      {/* <FeatureTextSmall className={DMSans700.className}>
-        Use Web2 for Web3 transactions
-      </FeatureTextSmall>
-      <Styled.HeaderText className={SpaceGrotesk700.className}>
-        Experience it yourself
-      </Styled.HeaderText> */}
 
       <Styled.Container >
         <Styled.WTContainer>
@@ -163,7 +157,7 @@ const WeaveTransfer = () => {
           </div>
 
           <p className={`${DMSans500.className} wt-text`}>
-            Example app using Othent, on chain file transfer without a wallet
+            On chain file transfer on the Arweave blockchain without a cryptocurrency wallet
           </p>
 
           <Styled.UploadMenu active={menuActive}>

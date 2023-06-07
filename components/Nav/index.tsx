@@ -135,10 +135,8 @@ const Nav = () => {
       )}
     <Styled.NavLogo>
       <a href='/' className='site-a-warp'>
-        <div className='toggle'>
-          <div></div>
-        </div>
-        <p className={DMSans700.className}>Othent</p>
+        <img src="./wt-logo.svg" alt="Weave Transfer logo" />
+        <p className={DMSans700.className}>Weave Transfer</p>
       </a>
     </Styled.NavLogo>
   <Styled.Menu>

@@ -285,7 +285,6 @@ export const UploadDemo = styled.div<Props>`
 
 export const UploadMenu = styled.div<MenuProps>`
   width: 97%;
-  margin-top: 2rem;
 
   gap: 1rem;
   display: flex;
