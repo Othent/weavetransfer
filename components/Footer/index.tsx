@@ -7,7 +7,7 @@ const Footer = () => {
       <LogoSection />
 
       <ul>
-        <p className={SpaceGrotesk600.className}>Resources</p>
+        {/* <p className={SpaceGrotesk600.className}>Resources</p>
         <li className={SpaceGrotesk500.className}>
           <a href="https://docs.othent.io/developers/sdk" target='_blank'>SDK's</a>
         </li>
@@ -16,30 +16,30 @@ const Footer = () => {
         </li>
         <li className={SpaceGrotesk500.className}>
           <a href="/media-kit.zip" download>Media Kit</a>
-        </li>
+        </li> */}
       </ul>
 
       <ul>
-        <p className={SpaceGrotesk600.className}>Company</p>
+        {/* <p className={SpaceGrotesk600.className}>Company</p> */}
         {/* <li className={SpaceGrotesk500.className}>
           <a href="https://blog.othent.io" target='_blank'>Blog</a>
         </li> */}
-        <li className={SpaceGrotesk500.className}>
+        {/* <li className={SpaceGrotesk500.className}>
           <a href="mailto:hello@.othent.io">Careers</a>
-        </li>
+        </li> */}
       </ul>
 
       <ul>
-        <p className={SpaceGrotesk600.className}>Legal</p>
+        {/* <p className={SpaceGrotesk600.className}>Legal</p>
         <li className={SpaceGrotesk500.className}>
           <a href="https://othent.io/tos.pdf" target='_blank'>Terms of Service</a>
         </li>
         <li className={`${SpaceGrotesk500.className} no-pointer`}>All rights reserved</li>
-        <li className={`${SpaceGrotesk500.className} no-pointer`}>Copyright © 2023</li>
+        <li className={`${SpaceGrotesk500.className} no-pointer`}>Copyright © 2023</li> */}
       </ul>
 
       <Styled.SocialChannels>
-        <p className={SpaceGrotesk600.className}>Follow us</p>
+        {/* <p className={SpaceGrotesk600.className}>Follow us</p>
         <li className={SpaceGrotesk500.className}>
           <a href="https://discord.gg/WPPBPtKbbN" target='_blank' className='social-a'>
             <img src='/discord-gray.svg' alt='discord icon' draggable={false} />
@@ -57,7 +57,7 @@ const Footer = () => {
             <img src='/twitter-icon.svg' alt='twitter icon' draggable={false} />
             Twitter
           </a>
-        </li>
+        </li> */}
       </Styled.SocialChannels>
 
       <LogoSection />

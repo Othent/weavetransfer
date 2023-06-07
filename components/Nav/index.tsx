@@ -145,7 +145,7 @@ const Nav = () => {
       target='_blank'
       className={`${DMSans700.className} devs`}
     >
-      Developers
+      {/* Developers */}
     </a>
     <a href='mailto:hello@othent.io' className={DMSans700.className}>
       Contact Us
