@@ -61,12 +61,12 @@ export const WTContainer = styled.div`
 
   @media (min-width: 550px) {
     width: 65%;
-    margin-top: 5rem;
+    margin-top: 8rem;
   }
 
   @media (min-width: 1024px) {
     width: 50%;
-    margin-top: 5rem;
+    margin-top: 8rem;
   }
 
   .weave-transfer {
